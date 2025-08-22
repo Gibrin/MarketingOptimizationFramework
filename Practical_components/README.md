@@ -1,36 +1,41 @@
+## Реализация каскадной ML-системы / Cascaded ML System Implementation
 
-# Budget & Strategy Orchestrator / Оптимизатор Бюджета и Стратегий
+[Русский](#русский) | [English](#english)
 
-[English](#english) | [Русский](#русский)
+<a name="русский"></a>
+### Русский
+**Практическая реализация одного из этапов каскадной ML-системы для оптимизации контекстной рекламы**
 
----
+Данный модуль представляет собой работающий proof-of-concept, демонстрирующий применение подхода многокритериальной оптимизации к реальным данным. Реализация включает стартовые модули для:
 
-## English
+- Анализа и сегментации семантики
+- Оптимизации ставок и бюджетов
+- Вычисления метрик эффективности с учетом fairness-ограничений
+- Визуализации результатов оптимизации
 
-A module for advertising budget optimization with fairness-aware allocation.
+**Ключевые особенности:**
+- Поддержка различных стратегий ставок (Manual CPC, Max Conversions)
+- Интеграция метрик справедливости распределения (Nash Welfare)
+- Автоматическая обработка и валидация данных из Яндекс.Директ/Google Ads
+- Модульная архитектура для дальнейшего расширения
 
-This component is a core part of a cascaded ML system designed for multi-criteria optimization of marketing value. It moves beyond simple efficiency maximization (e.g., total conversions) to find an optimal and fair budget allocation across advertising campaigns, considering their diverse strategies and contributions to overarching business goals. It serves as a practical proof-of-concept for the Multi-Criteria and Multi-Dimensional Trajectory Optimization (MCDTO) framework.
+[Смотреть код реализации](practical_components/start_optimizer.ipynb)
 
-### Key Features
+<a name="english"></a>
+### English
+**Practical implementation of a cascaded ML system stage for contextual advertising optimization**
 
-*   Multi-Objective Optimization: Balances campaign efficiency (ROI, conversions) with distribution fairness using economic welfare metrics.
-*   Hybrid Strategy Support: Processes campaigns with various automated and manual bidding strategies (Manual CPC, Max Clicks, Max Conversions).
-*   Welfare Economics Integration: Implements Nash Welfare (balance) and Egalitarian Welfare (minimum guarantee) metrics to evaluate portfolio health.
-*   Robust Data Pipeline: Handles real-world data inconsistencies from sources like Yandex.Direct and Google Ads, automatically inferring missing metrics (CPC, Clicks).
-*   Production-Ready Code: Structured with configuration management, type hints, comprehensive data validation, and error handling.
+This module is a working proof-of-concept demonstrating the application of multi-criteria optimization approach to real-world data. The implementation includes starter modules for:
 
-### Theoretical Background
+- Semantic analysis and segmentation
+- Bid and budget optimization
+- Performance metrics calculation with fairness constraints
+- Optimization results visualization
 
-Traditional marketing optimization often focuses on a single, ultimate metric (e.g., ROMI), potentially leading to unsustainable strategies that starve emerging campaigns. This module reframes the problem by simultaneously evaluating:
+**Key Features:**
+- Support for various bidding strategies (Manual CPC, Max Conversions)
+- Integration of fairness distribution metrics (Nash Welfare)
+- Automatic processing and validation of data from Yandex.Direct/Google Ads
+- Modular architecture for future expansion
 
-1.  Efficiency: The expected return (conversions) per unit of budget based on historical performance.
-2.  Fairness: The equity of resource distribution across the campaign portfolio, ensuring the system's long-term health and exploring new opportunities.
-
-This approach helps prevent the common pitfall where the entire budget is allocated to a few top-performing campaigns, leaving no room for testing and scaling promising new channels.
-
-### Installation & Dependencies
-
-Ensure you have Python 3.8+ installed. Install the required libraries:
-
-```bash
-pip install pandas numpy
+[View implementation code](practical_components/start_optimizer.ipynb)
